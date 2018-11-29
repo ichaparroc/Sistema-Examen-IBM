@@ -1,16 +1,12 @@
 <?php
-if(isset($_GET['cerrar']))
+session_start();
+if(isset($_SESSION['loggedin']))
 {
-    session_start();
     foreach($_SESSION as $key => $value)
     {
       $_SESSION[$key] = NULL;
     }
     session_destroy();
-}
-if(isset($_SESSION['loggedin']) and $_SESSION['loggedin']==true)
-{
-    header('Location: inicio.php');
 }
 header('Content-Type: text/html; charset=ISO-8859-1');
 include("conexion.php");
@@ -115,15 +111,15 @@ include("conexion.php");
                             <div class="form-group">
                                 <label for="dni">DNI</label>
                                 <div class="input-group">
-                                    <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-star"></span></span>
-                                    <input type="text" class="form-control" placeholder="DNI" aria-describedby="basic-addon1" name="dni">
+                                    <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-credit-card"></span></span>
+                                    <input type="password" class="form-control" placeholder="DNI" aria-describedby="basic-addon1" name="dni">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="examen">Examen</label>
                                 <div class="input-group">
-                                    <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-star"></span></span>
-                                    <input type="text" class="form-control" placeholder="Examen" aria-describedby="basic-addon1" name="examen">
+                                    <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-list-alt"></span></span>
+                                    <input type="password" class="form-control" placeholder="Examen" aria-describedby="basic-addon1" name="examen">
                                 </div>
                             </div>
                             <hr/>
